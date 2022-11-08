@@ -60,7 +60,7 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
 ---
 
-# Sponsorname contest details
+# LSD Network - Stakehouse contest details
 - Total Prize Pool: Sum of below awards
   - HM awards: XXX XXX (Notion Field: Main Pool)
   - QA report awards: XXX XXX (Notion Field: QA Pool, usually 10% of total award pool)
