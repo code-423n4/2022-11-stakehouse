@@ -48,7 +48,7 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 ---
 
 # LSD Network - Stakehouse contest details
-- Total Prize Pool: Sum of below awards
+- Total Prize Pool: $90,500 USDC
   - HM awards: $63,750 USDC 
   - QA report awards: $7,500 USDC 
   - Gas report awards: $3,750 USDC
@@ -88,30 +88,30 @@ The C4audit output for the contest can be found [here](add link to report) withi
 
 *Describe any novel or unique curve logic or mathematical models implemented in the contracts*
 
-**C4 staff TODO: fill in scoping form details here for sponsor to confirm or edit**
+*Please confirm/edit the scoping details below.*
 
 ## Scoping Details 
 ```
-- If you have a public code repo, please share it here:  
-- How many contracts are in scope?:   
-- Total SLoC for these contracts?:  
-- How many external imports are there?:  
-- How many separate interfaces and struct definitions are there for the contracts within scope?:  
-- Does most of your code generally use composition or inheritance?:   
-- How many external calls?:   
-- What is the overall line coverage percentage provided by your tests?:  
-- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?:   
-- Please describe required context:   
-- Does it use an oracle?:  
-- Does the token conform to the ERC20 standard?:  
-- Are there any novel or unique curve logic or mathematical models?: 
-- Does it use a timelock function?:  
-- Is it an NFT?: 
-- Does it have an AMM?:   
-- Is it a fork of a popular project?:   
-- Does it use rollups?:   
-- Is it multi-chain?:  
-- Does it use a side-chain?: 
+- If you have a public code repo, please share it here: https://github.com/stakehouse-dev/lsd-arena
+- How many contracts are in scope?: 25
+- Total SLoC for these contracts?: 2500
+- How many external imports are there?: 5
+- How many separate interfaces and struct definitions are there for the contracts within scope?: 8
+- Does most of your code generally use composition or inheritance?:  Composition
+- How many external calls?:  5 
+- What is the overall line coverage percentage provided by your tests?:  In Progress
+- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?: Yes  
+- Please describe required context:  Stakehouse protocol and Ethereum staking
+- Does it use an oracle?: No
+- Does the token conform to the ERC20 standard?:  Yes
+- Are there any novel or unique curve logic or mathematical models?: No
+- Does it use a timelock function?:  No
+- Is it an NFT?: No
+- Does it have an AMM?:  No
+- Is it a fork of a popular project?:  No 
+- Does it use rollups?: No
+- Is it multi-chain?: Yes
+- Does it use a side-chain?: No
 ```
 
 # Tests
