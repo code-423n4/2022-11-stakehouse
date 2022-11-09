@@ -251,7 +251,6 @@ Existing Certora rules which are being expanded and looked into can be found in 
 ```
 
 # Quickstart command
-Including this command may cut down on the number of build/test issues wardens ask about, and will let you point to a single command for them to try before attempting to debug a warden's build/test issue (☢️ do not include this explanation line if copying this section to your `README.md` ☢️)
 
 `rm -Rf 2022-11-stakehouse || true && git clone https://github.com/code-423n4/2022-11-stakehouse.git && cd 2022-11-stakehouse && yarn install && yarn test --gas-report`
 
