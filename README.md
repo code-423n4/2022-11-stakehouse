@@ -106,7 +106,7 @@ Categories of vulnerabilities to think about:
 - Contract accounting deviating from intended specification
 - Syndicate ETH fund splitting failures i.e. being able to claim more than stake weight or claim more than once etc.
 - DAO compromised
-- External protocols - what happens when an external protocol is integrated? Flash bots broke a lot of protocols
+- External protocols - what happens when an external protocol is integrated? Flash loans broke a lot of protocols
 
 # Additional Context
 
