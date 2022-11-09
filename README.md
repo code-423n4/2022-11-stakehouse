@@ -18,8 +18,8 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 
 ## ⭐️ Sponsor: Add code to this repo
 
-- [ ] Create a PR to this repo with the below changes:
-- [ ] Provide a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
+- [x] Create a PR to this repo with the below changes:
+- [x] Provide a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
 - [x] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
 - [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 24 hours prior to contest start time.**
 - [ ] Be prepared for a 🚨code freeze🚨 for the duration of the contest — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the contest. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
@@ -70,7 +70,49 @@ The C4audit output for the contest can be found [here](add link to report) withi
 
 # Overview
 
-*Please provide some context about the code being audited, and identify any areas of specific concern in reviewing the code. (This is a good place to link to your docs, if you have them.)*
+Liquid Staking Derivative (LSD) Networks are permissionless networks deployed on top of the Stakehouse protocol that serves as an abstraction for consensus layer assets. LSD participants can enjoy fractionalized validator ownership with deposits as little as 0.001 ether. 
+
+Liquidity provisioning is made easier thanks to giant liquidity pools that can supply the ether required for any validator being created in any liquid staking network. Stakehouse protocol derivatives minted within LSDs all benefit from shared dETH liquidity allowing for maximum Ethereum decentralization whilst the rising tide of dETH liquidity raises all boats.
+
+Blockswap Labs is the core contributor of the Liquid Staking Derivatives suite of contracts and is heavily testing the smart contracts in parallel to any external efforts to find and fix bugs as safety of user's funds prevails above launching a new offering.
+
+## Contracts overview
+<img width="1222" alt="image" src="https://user-images.githubusercontent.com/70540321/199479093-ec45cadd-91d7-47f0-811f-1d0016b95189.png">
+
+LSD network instances are instantiated from the LSD network factory. This will deploy the contracts required for the operation of a LSD network:
+- SavETH Vault - protected staking vault where up to 24 ETH per validator can be staked for dETH 
+- Staking Funds - Staking funds for fees and MEV collecting 50% of all cashflow from EIP1559
+
+Contracts deployed on demand:
+- Node Runner smart wallets for facilitating Ethereum Deposit Contract staking via the Stakehouse protocol
+- Syndicate for facilitating distribution of EIP1559 rewards 50% to node runners and 50% to the Staking Funds Vault
+- LP tokens for either Giant pool liquidity or liquidity for individual LSD networks
+
+## Mechanics and design - 3 pool strategy for curating 32 ETH
+Node runners can register a validator BLS public key if they supply `4 ETH`.
+
+For every registered BLS public key, rest of the ETH is crowd sourced as follows:
+- SavETH Vault - users can pool up to `24 ETH` where protected staking ensures no-loss. dETH can be redeemed after staking
+- Staking funds vault - users can pool up to `4 ETH` where the user's share of LP token will entitle them to a percentage of half of all network revenue
+
+Once the 3 pool strategy reaches its 32 ETH target per validator, node runners can proceed to trigger sending of the queued funds to the Ethereum Deposit Contract after being registered by the Stakehouse protocol. 
+
+Finally, once certified by the beacon chain, Stakehouse protocol derivatives can be minted which automatically takes care of a number of actions:
+- Allocate savETH <> dETH to `savETH Vault` (24 dETH)
+- Register validator to syndicate so that the node runner can get 50% of network revenue and staking funds LPs can get a pro rata share of the other 50% thanks to SLOT tokens
+
+All 3 pools own a fraction of a regular 32 ETH validator with the consensus and network revenue split amongst the 3 pools.
+
+## Flow for creating an LSD validator within the Stakehouse protocol
+
+1) Node runner registers validator credentials and supplies first 4 ETH
+2) SavETH Vault and Staking Funds Vault fills up with ETH for the KNOT until total of 32 ETH is reached (if needed, liquidity from Giant pool can be sourced)
+3) Node runner with their representative stake the validator
+4) After Consensus Layer approves validator, derivatives can be minted
+
+## Node runner risks
+
+Node runners must supply exactly 4 ETH per validator credentials in order to shield the protocol from risks of mismanaging node. Should there be an error in node running, the node runner's capital is at risk of being slashed by anyone on the market via the Stakehouse protocol.
 
 # Scope
 
@@ -78,31 +120,46 @@ The C4audit output for the contest can be found [here](add link to report) withi
 
 | Contract | SLOC | Purpose | Libraries used |  
 | ----------- | ----------- | ----------- | ----------- |
-| contrats/liquid-staking/ETHPoolLPFactory.sol | 85 | Factory for deploying LP tokens for ETH pools | [`@openzeppelin/*`](<(https://openzeppelin.com/contracts/)>) |
-| contrats/liquid-staking/GiantLP.sol | 33 | LP token minted for supplying ETH to a Giant pool | [`@openzeppelin/*`](<(https://openzeppelin.com/contracts/)>) |
+| contrats/liquid-staking/ETHPoolLPFactory.sol | 85 | Factory for deploying LP tokens for ETH pools | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
+| contrats/liquid-staking/GiantLP.sol | 33 | LP token minted for supplying ETH to a Giant pool | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
 | contrats/liquid-staking/GiantMevAndFeesPool.sol | 149 | ETH pool that can deploy capital to any LSD Staking Funds Vault | N/A |
-| contrats/liquid-staking/GiantPoolBase.sol | 53 | Base contract inherited by both Giant pools | [`@openzeppelin/*`](<(https://openzeppelin.com/contracts/)>) |
-| contrats/liquid-staking/GiantSavETHVaultPool.sol | 101 | ETH pool that can deploy capital to any LSD SavETH Vault | TODO |
-| contrats/liquid-staking/LiquidStakingManager.sol | 602 | Central orchestrator for any LSD instance managing full lifecycle of staking and interacting with the Stakehouse protocol | TODO |
-| contrats/liquid-staking/LPToken.sol | 44 | Token minted when ETH is deposited for a specific LSD instance | TODO |
-| contrats/liquid-staking/LPTokenFactory.sol | 30 | Factory for deploying new LP token instances | TODO |
-| contrats/liquid-staking/LSDNFactory.sol | 66 | Factory for deploying new LSD instances including its Liquid Staking Manager | TODO |
-| contrats/liquid-staking/OptionalGatekeeperFactory.sol | 10 | Factory for deploying an optional gatekeeper that will prevent KNOTs outside of the LSD network from joining the house | TODO |
-| contrats/liquid-staking/OptionalHouseGatekeeper.sol | 12 | If enabled for an LSD instance, it will only allow knots that are registered in the LSD to join the house | TODO |
-| contrats/liquid-staking/SavETHVault.sol | 144 | Contract for facilitating protected deposits of ETH for dETH once each KNOT mints it's derivatives | TODO |
-| contrats/liquid-staking/SavETHVaultDeployer.sol | 17 | Can deploy multiple instances of SavETH Vault | TODO |
-| contrats/liquid-staking/StakingFundsVault.sol | 246 | Contract for facilitating deposits of ETH for LSD network. The LP token issued from the Staking Funds Vault can claim a pro rata share of network revenue | TODO |
-| contrats/liquid-staking/StakingFundsVaultDeployer.sol | 17 | Can deploy multiple instances of Staking Funds Vault | TODO |
-| contrats/liquid-staking/SyndicateRewardsProcessor.sol | 60 | Abstract contract for managing the receipt of ETH from a Syndicate contract and distributing it amongst LP tokens whilst ensuring that flash loans cannot claim ETH in same block | TODO |
-| contrats/smart-wallet/OwnableSmartWallet.sol | 107 | Generic wallet which can be used in conjunction with the Stakehouse protocol for staking; making collateralized SLOT tokens governable | TODO |
-| contrats/smart-wallet/OwnableSmartWalletFactory.sol | 26 | Factory for deploying a smart wallet | TODO |
-| contrats/syndicate/Syndicate.sol | 402 | Splitting ETH amongst KNOT SLOT shares (free floating and collateralized) | TODO |
-| contrats/syndicate/SyndicateErrors.sol | 21 | Contract for storing all Solidity errors for Syndicate | TODO |
-| contrats/syndicate/SyndicateFactory.sol | 44 | Contract for deploying new syndicate contract instances | TODO |
+| contrats/liquid-staking/GiantPoolBase.sol | 53 | Base contract inherited by both Giant pools | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
+| contrats/liquid-staking/GiantSavETHVaultPool.sol | 101 | ETH pool that can deploy capital to any LSD SavETH Vault | [`@blockswaplab/stakehouse-solidity-api/*`](https://www.npmjs.com/package/@blockswaplab/stakehouse-solidity-api/) |
+| contrats/liquid-staking/LiquidStakingManager.sol | 602 | Central orchestrator for any LSD instance managing full lifecycle of staking and interacting with the Stakehouse protocol | [`@openzeppelin/*`](https://openzeppelin.com/contracts) [`@blockswaplab/stakehouse-solidity-api/*`](https://www.npmjs.com/package/@blockswaplab/stakehouse-solidity-api/) |
+| contrats/liquid-staking/LPToken.sol | 44 | Token minted when ETH is deposited for a specific LSD instance | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
+| contrats/liquid-staking/LPTokenFactory.sol | 30 | Factory for deploying new LP token instances | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
+| contrats/liquid-staking/LSDNFactory.sol | 66 | Factory for deploying new LSD instances including its Liquid Staking Manager | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
+| contrats/liquid-staking/OptionalGatekeeperFactory.sol | 10 | Factory for deploying an optional gatekeeper that will prevent KNOTs outside of the LSD network from joining the house | N/A |
+| contrats/liquid-staking/OptionalHouseGatekeeper.sol | 12 | If enabled for an LSD instance, it will only allow knots that are registered in the LSD to join the house | N/A |
+| contrats/liquid-staking/SavETHVault.sol | 144 | Contract for facilitating protected deposits of ETH for dETH once each KNOT mints it's derivatives | [`@openzeppelin/*`](https://openzeppelin.com/contracts) [`@blockswaplab/stakehouse-solidity-api/*`](https://www.npmjs.com/package/@blockswaplab/stakehouse-solidity-api/) |
+| contrats/liquid-staking/SavETHVaultDeployer.sol | 17 | Can deploy multiple instances of SavETH Vault | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
+| contrats/liquid-staking/StakingFundsVault.sol | 246 | Contract for facilitating deposits of ETH for LSD network. The LP token issued from the Staking Funds Vault can claim a pro rata share of network revenue | [`@openzeppelin/*`](https://openzeppelin.com/contracts) [`@blockswaplab/stakehouse-solidity-api/*`](https://www.npmjs.com/package/@blockswaplab/stakehouse-solidity-api/) |
+| contrats/liquid-staking/StakingFundsVaultDeployer.sol | 17 | Can deploy multiple instances of Staking Funds Vault | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
+| contrats/liquid-staking/SyndicateRewardsProcessor.sol | 60 | Abstract contract for managing the receipt of ETH from a Syndicate contract and distributing it amongst LP tokens whilst ensuring that flash loans cannot claim ETH in same block | N/A |
+| contrats/smart-wallet/OwnableSmartWallet.sol | 107 | Generic wallet which can be used in conjunction with the Stakehouse protocol for staking; making collateralized SLOT tokens governable | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
+| contrats/smart-wallet/OwnableSmartWalletFactory.sol | 26 | Factory for deploying a smart wallet | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
+| contrats/syndicate/Syndicate.sol | 402 | Splitting ETH amongst KNOT SLOT shares (free floating and collateralized) | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
+| contrats/syndicate/SyndicateErrors.sol | 21 | Contract for storing all Solidity errors for Syndicate | N/A |
+| contrats/syndicate/SyndicateFactory.sol | 44 | Contract for deploying new syndicate contract instances | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
 
 ## Out of scope
 
 *List any files/contracts that are out of scope for this audit.*
+
+## Objectives
+
+Approach
+- Formal Verification of LSDN
+- Fuzzing
+- Unit Tests
+- Manual inspection
+
+Categories of vulnerabilities to think about:
+- Pool draining attacks (draining liquidity of Giant pools or an LSD instance)
+- Contract accounting deviating from intended specification
+- Syndicate ETH fund splitting failures i.e. being able to claim more than stake weight or claim more than once etc.
+- DAO compromised
+- External protocols - what happens when an external protocol is integrated? Flash bots broke a lot of protocols
 
 # Additional Context
 
