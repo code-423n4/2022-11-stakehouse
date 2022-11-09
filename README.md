@@ -79,9 +79,9 @@ The C4audit output for the contest can be found [here](add link to report) withi
 | Contract | SLOC | Purpose | Libraries used |  
 | ----------- | ----------- | ----------- | ----------- |
 | contrats/liquid-staking/ETHPoolLPFactory.sol | 85 | Factory for deploying LP tokens for ETH pools | [`@openzeppelin/*`](<(https://openzeppelin.com/contracts/)>) |
-| contrats/liquid-staking/GiantLP.sol | 33 | LP token minted for supplying ETH to a Giant pool | TODO |
-| contrats/liquid-staking/GiantMevAndFeesPool.sol | 149 | ETH pool that can deploy capital to any LSD Staking Funds Vault | TODO |
-| contrats/liquid-staking/GiantPoolBase.sol | 53 | Base contract inherited by both Giant pools |  |
+| contrats/liquid-staking/GiantLP.sol | 33 | LP token minted for supplying ETH to a Giant pool | [`@openzeppelin/*`](<(https://openzeppelin.com/contracts/)>) |
+| contrats/liquid-staking/GiantMevAndFeesPool.sol | 149 | ETH pool that can deploy capital to any LSD Staking Funds Vault | N/A |
+| contrats/liquid-staking/GiantPoolBase.sol | 53 | Base contract inherited by both Giant pools | [`@openzeppelin/*`](<(https://openzeppelin.com/contracts/)>) |
 | contrats/liquid-staking/GiantSavETHVaultPool.sol | 101 | ETH pool that can deploy capital to any LSD SavETH Vault | TODO |
 | contrats/liquid-staking/LiquidStakingManager.sol | 602 | Central orchestrator for any LSD instance managing full lifecycle of staking and interacting with the Stakehouse protocol | TODO |
 | contrats/liquid-staking/LPToken.sol | 44 | Token minted when ETH is deposited for a specific LSD instance | TODO |
@@ -114,7 +114,7 @@ The C4audit output for the contest can be found [here](add link to report) withi
 ```
 - If you have a public code repo, please share it here: https://github.com/stakehouse-dev/lsd-arena
 - How many contracts are in scope?: 25
-- Total SLoC for these contracts?: 2500
+- Total SLoC for these contracts?: 3000
 - How many external imports are there?: 5
 - How many separate interfaces and struct definitions are there for the contracts within scope?: 8
 - Does most of your code generally use composition or inheritance?:  Composition
