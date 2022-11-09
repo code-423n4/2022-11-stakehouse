@@ -78,7 +78,27 @@ The C4audit output for the contest can be found [here](add link to report) withi
 
 | Contract | SLOC | Purpose | Libraries used |  
 | ----------- | ----------- | ----------- | ----------- |
-| contracts/folder/sample.sol | 123 | This contract does XYZ | [`@openzeppelin/*`](<(https://openzeppelin.com/contracts/)>) |
+| contrats/liquid-staking/ETHPoolLPFactory.sol | TODO | Factory for deploying LP tokens for ETH pools | [`@openzeppelin/*`](<(https://openzeppelin.com/contracts/)>) |
+| contrats/liquid-staking/GiantLP.sol | TODO | LP token minted for supplying ETH to a Giant pool | TODO |
+| contrats/liquid-staking/GiantMevAndFeesPool.sol | TODO | ETH pool that can deploy capital to any LSD Staking Funds Vault | TODO |
+| contrats/liquid-staking/GiantPoolBase.sol | TODO | Base contract inherited by both Giant pools |  |
+| contrats/liquid-staking/GiantSavETHVaultPool.sol | TODO | ETH pool that can deploy capital to any LSD SavETH Vault | TODO |
+| contrats/liquid-staking/LiquidStakingManager.sol | TODO | Central orchestrator for any LSD instance managing full lifecycle of staking and interacting with the Stakehouse protocol | TODO |
+| contrats/liquid-staking/LPToken.sol | TODO | Token minted when ETH is deposited for a specific LSD instance | TODO |
+| contrats/liquid-staking/LPTokenFactory.sol | TODO | Factory for deploying new LP token instances | TODO |
+| contrats/liquid-staking/LSDNFactory.sol | TODO | Factory for deploying new LSD instances including its Liquid Staking Manager | TODO |
+| contrats/liquid-staking/OptionalGatekeeperFactory.sol | TODO | Factory for deploying an optional gatekeeper that will prevent KNOTs outside of the LSD network from joining the house | TODO |
+| contrats/liquid-staking/OptionalHouseGatekeeper.sol | TODO | If enabled for an LSD instance, it will only allow knots that are registered in the LSD to join the house | TODO |
+| contrats/liquid-staking/SavETHVault.sol | TODO | Contract for facilitating protected deposits of ETH for dETH once each KNOT mints it's derivatives | TODO |
+| contrats/liquid-staking/SavETHVaultDeployer.sol | TODO | Can deploy multiple instances of SavETH Vault | TODO |
+| contrats/liquid-staking/StakingFundsVault.sol | TODO | Contract for facilitating deposits of ETH for LSD network. The LP token issued from the Staking Funds Vault can claim a pro rata share of network revenue | TODO |
+| contrats/liquid-staking/StakingFundsVaultDeployer.sol | TODO | Can deploy multiple instances of Staking Funds Vault | TODO |
+| contrats/liquid-staking/SyndicateRewardsProcessor.sol | TODO | Abstract contract for managing the receipt of ETH from a Syndicate contract and distributing it amongst LP tokens whilst ensuring that flash loans cannot claim ETH in same block | TODO |
+| contrats/smart-wallet/OwnableSmartWallet.sol | TODO | Generic wallet which can be used in conjunction with the Stakehouse protocol for staking; making collateralized SLOT tokens governable | TODO |
+| contrats/smart-wallet/OwnableSmartWalletFactory.sol | TODO | Factory for deploying a smart wallet | TODO |
+| contrats/syndicate/Syndicate.sol | TODO | Splitting ETH amongst KNOT SLOT shares (free floating and collateralized) | TODO |
+| contrats/syndicate/SyndicateErrors.sol | TODO | Contract for storing all Solidity errors for Syndicate | TODO |
+| contrats/syndicate/SyndicateFactory.sol | TODO | Contract for deploying new syndicate contract instances | TODO |
 
 ## Out of scope
 
