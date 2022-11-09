@@ -230,7 +230,7 @@ Existing Certora rules which are being expanded and looked into can be found in 
 ```
 - If you have a public code repo, please share it here: https://github.com/stakehouse-dev/lsd-arena
 - How many contracts are in scope?: 25
-- Total SLoC for these contracts?: 3000
+- Total SLoC for these contracts?: 2269
 - How many external imports are there?: 5
 - How many separate interfaces and struct definitions are there for the contracts within scope?: 8
 - Does most of your code generally use composition or inheritance?:  Composition
