@@ -11,9 +11,11 @@
 - Starts November 11, 2022 20:00 UTC
 - Ends November 18, 2022 20:00 UTC
 
-# Video Walkthrough
+# Video Walkthrough + External documentation
 
 https://www.youtube.com/watch?v=7UHDUA9l6Ek
+
+https://docs.google.com/document/d/1ipeaj74kWQZNq-FZ1QD9DLoiz5vRnx-_thzCNBuuRpM/edit?usp=sharing
 
 # Overview
 
