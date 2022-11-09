@@ -163,9 +163,41 @@ Categories of vulnerabilities to think about:
 
 # Additional Context
 
-*Describe any novel or unique curve logic or mathematical models implemented in the contracts*
+A bit of background on formal verification tools. 
 
-*Please confirm/edit the scoping details below.*
+Invariant - some property that holds irrespective of the contract state.
+
+Example: Let’s take the ERC20 contract where each account has a balance. ERC20 contract also has the total supply which should be the sum of all the balances (no money is created or deleted out of nowhere), hence here we have the following invariant:
+
+English invariant: Sum of all balances == totalSupply
+
+Or in mathematical notation we can denote bi as the balance of i’th account, and T the total supply:
+
+Invariant: i bi = T
+
+In this case the invariant test would be the following (pseudocode):
+
+Set the contract state to i bi = T
+Call a function f on the smart contract
+Check if i bi = T still holds after the function call
+
+Here if the invariant is violated obviously the contract just reached the state it should not.
+
+Some properties suggested by the core contributors from Blockswap Labs:
+
+- Property #1: The sum of all provided ETH by SavETH Vault == to the number of LP tokens minted in total for all the KNOTs
+
+- Property #2: LP token rotation is only possible if both the KNOTs are in status Initials Registered
+
+- Property #3: Rotated LP preference conserves the LP quantity (no new tokens created or destroyed)
+
+- Property #4: LP token total supply should be capped at 24 ETH
+
+- Property #5: Sum of all LP tokens of non-deposited BLS keys == ETH balance of the smart contract
+
+- Property #6: Each BLS public key can only be associated with 1 LP token
+
+Existing Certora rules which are being expanded and looked into can be found in the `certora/` folder within the repository.
 
 ## Scoping Details 
 ```
@@ -193,6 +225,16 @@ Categories of vulnerabilities to think about:
 
 # Tests
 
-*Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.* 
+Foundry tests can be run with the following command:
+```
+yarn test
+```
 
-*Note: Many wardens run Slither as a first pass for testing.  Please document any known errors with no workaround.* 
+If anything requires more verbose logging, then the following can be run:
+```
+yarn test-debug
+```
+
+Coverage is a possibility but not fully stable yet due to Solidity stack too deep issues which are being actively looked into.
+
+The `contracts/testing` folder contains mock versions of some of the LSD network contracts but also mock versions of the Stakehouse protocol contracts used in the testing of the protocol in order to facilitate testing without the external dependency. Of course, foundry tests can be written to execute tests on a fork of the goerli or mainnet contracts that are currently deployed. 
