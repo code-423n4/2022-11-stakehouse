@@ -13,7 +13,7 @@
 
 # Commit
 
-https://github.com/code-423n4/2022-11-stakehouse/commit/fac28671afb64b065fc7ffd10d730fe20264bc31
+https://github.com/code-423n4/2022-11-stakehouse/commit/5f853d055d7aa1bebe9e24fd0e863ef58c004339
 
 # Video Walkthrough + External documentation
 
