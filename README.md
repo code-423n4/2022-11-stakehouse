@@ -11,9 +11,15 @@
 - Starts November 11, 2022 20:00 UTC
 - Ends November 18, 2022 20:00 UTC
 
-# Video Walkthrough
+# Commit
 
-https://www.youtube.com/watch?v=7UHDUA9l6Ek
+https://github.com/code-423n4/2022-11-stakehouse/commit/fac28671afb64b065fc7ffd10d730fe20264bc31
+
+# Video Walkthrough + External documentation
+
+Walkthrough: https://www.youtube.com/watch?v=7UHDUA9l6Ek
+
+Documentation: https://docs.google.com/document/d/1ipeaj74kWQZNq-FZ1QD9DLoiz5vRnx-_thzCNBuuRpM/edit?usp=sharing
 
 # Overview
 
@@ -63,35 +69,109 @@ Node runners must supply exactly 4 ETH per validator credentials in order to shi
 
 # Scope
 
-*List all files in scope in the table below -- and feel free to add notes here to emphasize areas of focus.*
+Due to stack too deep issues which are being looked into, the respective column could not be filled.
 
-| Contract | SLOC | Purpose | Libraries used |  
-| ----------- | ----------- | ----------- | ----------- |
-| contrats/liquid-staking/ETHPoolLPFactory.sol | 85 | Factory for deploying LP tokens for ETH pools | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
-| contrats/liquid-staking/GiantLP.sol | 33 | LP token minted for supplying ETH to a Giant pool | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
-| contrats/liquid-staking/GiantMevAndFeesPool.sol | 149 | ETH pool that can deploy capital to any LSD Staking Funds Vault | N/A |
-| contrats/liquid-staking/GiantPoolBase.sol | 53 | Base contract inherited by both Giant pools | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
-| contrats/liquid-staking/GiantSavETHVaultPool.sol | 101 | ETH pool that can deploy capital to any LSD SavETH Vault | [`@blockswaplab/stakehouse-solidity-api/*`](https://www.npmjs.com/package/@blockswaplab/stakehouse-solidity-api/) |
-| contrats/liquid-staking/LiquidStakingManager.sol | 602 | Central orchestrator for any LSD instance managing full lifecycle of staking and interacting with the Stakehouse protocol | [`@openzeppelin/*`](https://openzeppelin.com/contracts) [`@blockswaplab/stakehouse-solidity-api/*`](https://www.npmjs.com/package/@blockswaplab/stakehouse-solidity-api/) |
-| contrats/liquid-staking/LPToken.sol | 44 | Token minted when ETH is deposited for a specific LSD instance | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
-| contrats/liquid-staking/LPTokenFactory.sol | 30 | Factory for deploying new LP token instances | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
-| contrats/liquid-staking/LSDNFactory.sol | 66 | Factory for deploying new LSD instances including its Liquid Staking Manager | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
-| contrats/liquid-staking/OptionalGatekeeperFactory.sol | 10 | Factory for deploying an optional gatekeeper that will prevent KNOTs outside of the LSD network from joining the house | N/A |
-| contrats/liquid-staking/OptionalHouseGatekeeper.sol | 12 | If enabled for an LSD instance, it will only allow knots that are registered in the LSD to join the house | N/A |
-| contrats/liquid-staking/SavETHVault.sol | 144 | Contract for facilitating protected deposits of ETH for dETH once each KNOT mints it's derivatives | [`@openzeppelin/*`](https://openzeppelin.com/contracts) [`@blockswaplab/stakehouse-solidity-api/*`](https://www.npmjs.com/package/@blockswaplab/stakehouse-solidity-api/) |
-| contrats/liquid-staking/SavETHVaultDeployer.sol | 17 | Can deploy multiple instances of SavETH Vault | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
-| contrats/liquid-staking/StakingFundsVault.sol | 246 | Contract for facilitating deposits of ETH for LSD network. The LP token issued from the Staking Funds Vault can claim a pro rata share of network revenue | [`@openzeppelin/*`](https://openzeppelin.com/contracts) [`@blockswaplab/stakehouse-solidity-api/*`](https://www.npmjs.com/package/@blockswaplab/stakehouse-solidity-api/) |
-| contrats/liquid-staking/StakingFundsVaultDeployer.sol | 17 | Can deploy multiple instances of Staking Funds Vault | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
-| contrats/liquid-staking/SyndicateRewardsProcessor.sol | 60 | Abstract contract for managing the receipt of ETH from a Syndicate contract and distributing it amongst LP tokens whilst ensuring that flash loans cannot claim ETH in same block | N/A |
-| contrats/smart-wallet/OwnableSmartWallet.sol | 107 | Generic wallet which can be used in conjunction with the Stakehouse protocol for staking; making collateralized SLOT tokens governable | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
-| contrats/smart-wallet/OwnableSmartWalletFactory.sol | 26 | Factory for deploying a smart wallet | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
-| contrats/syndicate/Syndicate.sol | 402 | Splitting ETH amongst KNOT SLOT shares (free floating and collateralized) | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
-| contrats/syndicate/SyndicateErrors.sol | 21 | Contract for storing all Solidity errors for Syndicate | N/A |
-| contrats/syndicate/SyndicateFactory.sol | 44 | Contract for deploying new syndicate contract instances | [`@openzeppelin/*`](https://openzeppelin.com/contracts) |
+### Files in scope
+|File|[SLOC](#nowhere "(nSLOC, SLOC, Lines)")|[Coverage](#nowhere "(Lines hit / Total)")|
+|:-|:-:|:-:|
+|_Contracts (18)_|
+|[contracts/liquid-staking/OptionalGatekeeperFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/OptionalGatekeeperFactory.sol) [🌀](#nowhere "create/create2")|[10](#nowhere "(nSLOC:10, SLOC:10, Lines:18)")|-|
+|[contracts/liquid-staking/OptionalHouseGatekeeper.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/OptionalHouseGatekeeper.sol)|[12](#nowhere "(nSLOC:12, SLOC:12, Lines:22)")|-|
+|[contracts/liquid-staking/SavETHVaultDeployer.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/SavETHVaultDeployer.sol) [🌀](#nowhere "create/create2")|[17](#nowhere "(nSLOC:17, SLOC:17, Lines:26)")|-|
+|[contracts/liquid-staking/StakingFundsVaultDeployer.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/StakingFundsVaultDeployer.sol) [🌀](#nowhere "create/create2")|[17](#nowhere "(nSLOC:17, SLOC:17, Lines:26)")|-|
+|[contracts/smart-wallet/OwnableSmartWalletFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/smart-wallet/OwnableSmartWalletFactory.sol) [🌀](#nowhere "create/create2")|[26](#nowhere "(nSLOC:26, SLOC:26, Lines:45)")|-|
+|[contracts/liquid-staking/LPTokenFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LPTokenFactory.sol)|[30](#nowhere "(nSLOC:25, SLOC:30, Lines:49)")|-|
+|[contracts/liquid-staking/GiantLP.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/GiantLP.sol)|[33](#nowhere "(nSLOC:33, SLOC:33, Lines:48)")|-|
+|[contracts/liquid-staking/LPToken.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LPToken.sol)|[44](#nowhere "(nSLOC:39, SLOC:44, Lines:71)")|-|
+|[contracts/syndicate/SyndicateFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/syndicate/SyndicateFactory.sol) [🧮](#nowhere "Uses Hash-Functions")|[44](#nowhere "(nSLOC:31, SLOC:44, Lines:65)")|-|
+|[contracts/liquid-staking/GiantPoolBase.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/GiantPoolBase.sol) [💰](#nowhere "Payable Functions") [📤](#nowhere "Initiates ETH Value Transfer")|[53](#nowhere "(nSLOC:53, SLOC:53, Lines:104)")|-|
+|[contracts/liquid-staking/LSDNFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LSDNFactory.sol)|[66](#nowhere "(nSLOC:61, SLOC:66, Lines:103)")|-|
+|[contracts/liquid-staking/GiantSavETHVaultPool.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/GiantSavETHVaultPool.sol) [📤](#nowhere "Initiates ETH Value Transfer") [🌀](#nowhere "create/create2")|[101](#nowhere "(nSLOC:83, SLOC:101, Lines:158)")|-|
+|[contracts/smart-wallet/OwnableSmartWallet.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/smart-wallet/OwnableSmartWallet.sol) [💰](#nowhere "Payable Functions")|[107](#nowhere "(nSLOC:60, SLOC:107, Lines:151)")|-|
+|[contracts/liquid-staking/SavETHVault.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/SavETHVault.sol) [💰](#nowhere "Payable Functions")|[144](#nowhere "(nSLOC:141, SLOC:144, Lines:249)")|-|
+|[contracts/liquid-staking/GiantMevAndFeesPool.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/GiantMevAndFeesPool.sol) [📤](#nowhere "Initiates ETH Value Transfer") [🌀](#nowhere "create/create2")|[149](#nowhere "(nSLOC:127, SLOC:149, Lines:205)")|-|
+|[contracts/liquid-staking/StakingFundsVault.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/StakingFundsVault.sol) [💰](#nowhere "Payable Functions")|[246](#nowhere "(nSLOC:239, SLOC:246, Lines:382)")|-|
+|[contracts/syndicate/Syndicate.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/syndicate/Syndicate.sol) [💰](#nowhere "Payable Functions") [📤](#nowhere "Initiates ETH Value Transfer")|[402](#nowhere "(nSLOC:374, SLOC:402, Lines:681)")|-|
+|[contracts/liquid-staking/LiquidStakingManager.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LiquidStakingManager.sol) [💰](#nowhere "Payable Functions")|[602](#nowhere "(nSLOC:534, SLOC:602, Lines:946)")|-|
+|_Abstracts (2)_|
+|[contracts/liquid-staking/SyndicateRewardsProcessor.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/SyndicateRewardsProcessor.sol) [💰](#nowhere "Payable Functions")|[60](#nowhere "(nSLOC:49, SLOC:60, Lines:99)")|-|
+|[contracts/liquid-staking/ETHPoolLPFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/ETHPoolLPFactory.sol)|[85](#nowhere "(nSLOC:81, SLOC:85, Lines:152)")|-|
+|_Other (1)_|
+|[contracts/syndicate/SyndicateErrors.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/syndicate/SyndicateErrors.sol)|[21](#nowhere "(nSLOC:21, SLOC:21, Lines:24)")|-|
+|Total (over 21 files):| [2269](#nowhere "(nSLOC:2033, SLOC:2269, Lines:3624)")| -|
 
-## Out of scope
 
-*List any files/contracts that are out of scope for this audit.*
+### All other source contracts (not in scope)
+|File|[SLOC](#nowhere "(nSLOC, SLOC, Lines)")|[Coverage](#nowhere "(Lines hit / Total)")|
+|:-|:-:|:-:|
+|_Interfaces (10)_|
+|[contracts/interfaces/IGateKeeper.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/interfaces/IGateKeeper.sol)|[4](#nowhere "(nSLOC:4, SLOC:4, Lines:10)")|-|
+|[contracts/interfaces/ILiquidStakingManagerChildContract.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/interfaces/ILiquidStakingManagerChildContract.sol)|[4](#nowhere "(nSLOC:4, SLOC:4, Lines:7)")|-|
+|[contracts/interfaces/IBrandNFT.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/interfaces/IBrandNFT.sol)|[5](#nowhere "(nSLOC:5, SLOC:5, Lines:8)")|-|
+|[contracts/interfaces/ITransferHookProcessor.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/interfaces/ITransferHookProcessor.sol)|[5](#nowhere "(nSLOC:5, SLOC:5, Lines:8)")|-|
+|[contracts/interfaces/ILPTokenInit.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/interfaces/ILPTokenInit.sol)|[9](#nowhere "(nSLOC:4, SLOC:9, Lines:13)")|-|
+|[contracts/interfaces/ISyndicateInit.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/interfaces/ISyndicateInit.sol)|[9](#nowhere "(nSLOC:4, SLOC:9, Lines:13)")|-|
+|[contracts/smart-wallet/interfaces/IOwnableSmartWalletFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/smart-wallet/interfaces/IOwnableSmartWalletFactory.sol)|[9](#nowhere "(nSLOC:9, SLOC:9, Lines:14)")|-|
+|[contracts/interfaces/ILiquidStakingManager.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/interfaces/ILiquidStakingManager.sol)|[19](#nowhere "(nSLOC:7, SLOC:19, Lines:37)")|-|
+|[contracts/interfaces/ISyndicateFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/interfaces/ISyndicateFactory.sol)|[20](#nowhere "(nSLOC:7, SLOC:20, Lines:41)")|-|
+|[contracts/smart-wallet/interfaces/IOwnableSmartWallet.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/smart-wallet/interfaces/IOwnableSmartWallet.sol) [💰](#nowhere "Payable Functions")|[32](#nowhere "(nSLOC:18, SLOC:32, Lines:69)")|-|
+|Total (over 10 files):| [116](#nowhere "(nSLOC:67, SLOC:116, Lines:220)")| -|
+
+
+## External imports
+* **@blockswaplab/stakehouse-contract-interfaces/contracts/interfaces/IDataStructures.sol**
+  * [contracts/liquid-staking/ETHPoolLPFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/ETHPoolLPFactory.sol)
+  * [contracts/liquid-staking/LiquidStakingManager.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LiquidStakingManager.sol)
+  * [contracts/liquid-staking/SavETHVault.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/SavETHVault.sol)
+  * [contracts/liquid-staking/StakingFundsVault.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/StakingFundsVault.sol)
+* **@blockswaplab/stakehouse-contract-interfaces/contracts/interfaces/IStakeHouseRegistry.sol**
+  * [contracts/liquid-staking/LiquidStakingManager.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LiquidStakingManager.sol)
+* **@blockswaplab/stakehouse-contract-interfaces/contracts/interfaces/ITransactionRouter.sol**
+  * [contracts/liquid-staking/LiquidStakingManager.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LiquidStakingManager.sol)
+* **@blockswaplab/stakehouse-solidity-api/contracts/StakehouseAPI.sol**
+  * [contracts/liquid-staking/ETHPoolLPFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/ETHPoolLPFactory.sol)
+  * [contracts/liquid-staking/GiantSavETHVaultPool.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/GiantSavETHVaultPool.sol)
+  * [contracts/liquid-staking/LiquidStakingManager.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LiquidStakingManager.sol)
+  * [contracts/liquid-staking/StakingFundsVault.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/StakingFundsVault.sol)
+  * [contracts/syndicate/Syndicate.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/syndicate/Syndicate.sol)
+* **@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol**
+  * [contracts/liquid-staking/LPToken.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LPToken.sol)
+  * [contracts/liquid-staking/LiquidStakingManager.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LiquidStakingManager.sol)
+  * [contracts/liquid-staking/SavETHVault.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/SavETHVault.sol)
+  * [contracts/liquid-staking/StakingFundsVault.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/StakingFundsVault.sol)
+  * [contracts/syndicate/Syndicate.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/syndicate/Syndicate.sol)
+* **@openzeppelin/contracts-upgradeable/token/ERC20/extensions/draft-ERC20PermitUpgradeable.sol**
+  * [contracts/liquid-staking/LPToken.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LPToken.sol)
+* **@openzeppelin/contracts/access/Ownable.sol**
+  * [contracts/liquid-staking/LiquidStakingManager.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LiquidStakingManager.sol)
+  * [contracts/smart-wallet/OwnableSmartWallet.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/smart-wallet/OwnableSmartWallet.sol)
+  * [contracts/syndicate/Syndicate.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/syndicate/Syndicate.sol)
+* **@openzeppelin/contracts/proxy/Clones.sol**
+  * [contracts/liquid-staking/LPTokenFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LPTokenFactory.sol)
+  * [contracts/liquid-staking/LSDNFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LSDNFactory.sol)
+  * [contracts/liquid-staking/SavETHVaultDeployer.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/SavETHVaultDeployer.sol)
+  * [contracts/liquid-staking/StakingFundsVaultDeployer.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/StakingFundsVaultDeployer.sol)
+  * [contracts/smart-wallet/OwnableSmartWalletFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/smart-wallet/OwnableSmartWalletFactory.sol)
+  * [contracts/syndicate/SyndicateFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/syndicate/SyndicateFactory.sol)
+* **@openzeppelin/contracts/proxy/utils/Initializable.sol**
+  * [contracts/smart-wallet/OwnableSmartWallet.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/smart-wallet/OwnableSmartWallet.sol)
+* **@openzeppelin/contracts/security/ReentrancyGuard.sol**
+  * [contracts/liquid-staking/GiantPoolBase.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/GiantPoolBase.sol)
+  * [contracts/liquid-staking/LiquidStakingManager.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LiquidStakingManager.sol)
+  * [contracts/liquid-staking/SavETHVault.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/SavETHVault.sol)
+  * [contracts/liquid-staking/StakingFundsVault.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/StakingFundsVault.sol)
+  * [contracts/syndicate/Syndicate.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/syndicate/Syndicate.sol)
+* **@openzeppelin/contracts/token/ERC20/ERC20.sol**
+  * [contracts/liquid-staking/GiantLP.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/GiantLP.sol)
+* **@openzeppelin/contracts/token/ERC20/IERC20.sol**
+  * [contracts/liquid-staking/LiquidStakingManager.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LiquidStakingManager.sol)
+  * [contracts/liquid-staking/StakingFundsVault.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/StakingFundsVault.sol)
+  * [contracts/syndicate/Syndicate.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/syndicate/Syndicate.sol)
+* **@openzeppelin/contracts/utils/Address.sol**
+  * [contracts/liquid-staking/LiquidStakingManager.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/LiquidStakingManager.sol)
+  * [contracts/smart-wallet/OwnableSmartWallet.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/smart-wallet/OwnableSmartWallet.sol)
+* **@openzeppelin/contracts/utils/Strings.sol**
+  * [contracts/liquid-staking/ETHPoolLPFactory.sol](https://github.com/code-423n4/2022-11-stakehouse/blob/main/contracts/liquid-staking/ETHPoolLPFactory.sol)
 
 ## Objectives
 
@@ -106,7 +186,7 @@ Categories of vulnerabilities to think about:
 - Contract accounting deviating from intended specification
 - Syndicate ETH fund splitting failures i.e. being able to claim more than stake weight or claim more than once etc.
 - DAO compromised
-- External protocols - what happens when an external protocol is integrated? Flash bots broke a lot of protocols
+- External protocols - what happens when an external protocol is integrated? Flash loans broke a lot of protocols
 
 # Additional Context
 
@@ -150,7 +230,7 @@ Existing Certora rules which are being expanded and looked into can be found in 
 ```
 - If you have a public code repo, please share it here: https://github.com/stakehouse-dev/lsd-arena
 - How many contracts are in scope?: 25
-- Total SLoC for these contracts?: 3000
+- Total SLoC for these contracts?: 2269
 - How many external imports are there?: 5
 - How many separate interfaces and struct definitions are there for the contracts within scope?: 8
 - Does most of your code generally use composition or inheritance?:  Composition
@@ -169,6 +249,14 @@ Existing Certora rules which are being expanded and looked into can be found in 
 - Is it multi-chain?: Yes
 - Does it use a side-chain?: No
 ```
+
+# Quickstart command
+
+`rm -Rf 2022-11-stakehouse || true && git clone https://github.com/code-423n4/2022-11-stakehouse.git && cd 2022-11-stakehouse && yarn install && yarn test --gas-report`
+
+# Installing Dependencies
+
+`yarn` or `yarn install` will do the trick.
 
 # Tests
 
