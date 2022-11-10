@@ -353,10 +353,12 @@ contract LiquidStakingManager is ILiquidStakingManager, Initializable, Reentranc
     /// @dev EOA representative rotation done outside this method because there may be knots currently staked etc.
     /// @param _current address of the present node runner of the smart wallet
     /// @param _new address of the new node runner of the smart wallet
-    /// @param _wasPreviousNodeRunnerMalicious set to true if the current node runner was malicious, false otherwise.
-    function rotateNodeRunnerOfSmartWallet(address _current, address _new, bool _wasPreviousNodeRunnerMalicious) external onlyDAO {
+    function rotateNodeRunnerOfSmartWallet(address _current, address _new, bool _wasPreviousNodeRunnerMalicious) external {
+        require(_new != address(0) && _current != _new, "New is zero or current");
+
         address wallet = smartWalletOfNodeRunner[_current];
         require(wallet != address(0), "Wallet does not exist");
+        require(_current == msg.sender || dao == msg.sender, "Not current owner or DAO");
 
         address newRunnerCurrentWallet = smartWalletOfNodeRunner[_new];
         require(newRunnerCurrentWallet == address(0), "New runner has a wallet");
@@ -366,7 +368,7 @@ contract LiquidStakingManager is ILiquidStakingManager, Initializable, Reentranc
 
         delete smartWalletOfNodeRunner[_current];
 
-        if(_wasPreviousNodeRunnerMalicious) {
+        if (msg.sender == dao && _wasPreviousNodeRunnerMalicious) {
             bannedNodeRunners[_current] = true;
             emit NodeRunnerBanned(_current);
         }
@@ -504,6 +506,13 @@ contract LiquidStakingManager is ILiquidStakingManager, Initializable, Reentranc
     /// @return true if the node runner is banned, false otherwise
     function isNodeRunnerBanned(address _nodeRunner) public view returns (bool) {
         return bannedNodeRunners[_nodeRunner];
+    }
+
+    /// @notice function to check if a KNOT is deregistered
+    /// @param _blsPublicKey BLS public key of the KNOT
+    /// @return true if the KNOT is deregistered, false otherwise
+    function isKnotDeregistered(bytes calldata _blsPublicKey) public view returns (bool) {
+        return Syndicate(payable(syndicate)).isNoLongerPartOfSyndicate(_blsPublicKey);
     }
 
     /// @notice Anyone can call this to trigger staking once they have all of the required input params from BLS authentication

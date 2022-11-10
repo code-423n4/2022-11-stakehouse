@@ -126,6 +126,9 @@ abstract contract ETHPoolLPFactory is StakehouseAPI {
             emit LPTokenMinted(_blsPublicKeyOfKnot, address(lpToken), msg.sender, _amount);
         }
         else {
+            // check that amount doesn't exceed max staking amount per validator
+            require(_amount <= maxStakingAmountPerValidator, "Amount exceeds the staking limit for the validator");
+            
             // mint new LP tokens for the new KNOT
             // add the KNOT in the mapping
             string memory tokenNumber = Strings.toString(numberOfLPTokensIssued);
