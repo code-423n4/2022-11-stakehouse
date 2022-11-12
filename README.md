@@ -36,7 +36,7 @@ Liquidity provisioning is made easier thanks to giant liquidity pools that can s
 Blockswap Labs is the core contributor of the Liquid Staking Derivatives suite of contracts and is heavily testing the smart contracts in parallel to any external efforts to find and fix bugs as safety of user's funds prevails above launching a new offering.
 
 ## Contracts overview
-<img width="1222" alt="image" src="https://user-images.githubusercontent.com/70540321/199479093-ec45cadd-91d7-47f0-811f-1d0016b95189.png">
+![overview](https://user-images.githubusercontent.com/70540321/199479093-ec45cadd-91d7-47f0-811f-1d0016b95189.png)
 
 LSD network instances are instantiated from the LSD network factory. This will deploy the contracts required for the operation of a LSD network:
 - SavETH Vault - protected staking vault where up to 24 ETH per validator can be staked for dETH 
