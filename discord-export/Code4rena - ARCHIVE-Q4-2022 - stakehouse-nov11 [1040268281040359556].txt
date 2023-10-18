@@ -1,0 +1,840 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q4-2022 / stakehouse-nov11
+==============================================================
+
+[11/10/2022 14:17] itsmetechjay (pinned)
+👋 Hello and welcome to the contest channel for the $90,500 USDC **LSD Network - Stakehouse** contest!
+
+📆 Contest opens Friday, 11 November 2022 20:00 and runs through Friday, 18 November 2022 20:00 (20:00 UTC) (7 days).
+
+Please give a warm welcome to the Stakehouse team, particularly @vdecentralised, who will be available for questions either here in the channel or via DM.
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, consider enabling notifications for this channel. 🐺 ⏰
+
+Contest Page: https://code4rena.com/contests/2022-11-lsd-network-stakehouse-contest
+
+{Embed}
+https://code4rena.com/contests/2022-11-lsd-network-stakehouse-contest
+Code4rena LSD Network - Stakehouse contest
+$90,500 USDC
+11 November 2022—18 November 2022
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/C4-banner-7C19B.png
+
+{Reactions}
+chefskiss (4) nice (2) 🥩 (7) 🔥 (3) Blockswap_rocket1 
+
+[11/10/2022 14:17] itsmetechjay
+Pinned a message.
+
+
+[11/11/2022 20:13] thepicodes (pinned)
+**Automated report:** https://gist.github.com/Picodes/b7428629484c8aa937b2606f21623151
+
+
+[11/11/2022 20:14] kartoonjoy (pinned)
+Wardens, please note that c4udit output has been posted above and added to pinned posts. These are considered publicly known issues and are not eligible for awards.
+
+Automated findings: https://gist.github.com/Picodes/b7428629484c8aa937b2606f21623151
+
+This will also be linked in the contest README file shortly.
+
+{Embed}
+https://gist.github.com/Picodes/b7428629484c8aa937b2606f21623151
+4naly3er-2022-11-stakehouse.md
+GitHub Gist: instantly share code, notes, and snippets.
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/gist-og-image-17482.png
+
+
+[11/11/2022 20:16] kartoonjoy
+Pinned a message.
+
+
+[11/11/2022 20:16] kartoonjoy
+Pinned a message.
+
+
+[11/12/2022 00:35] Derek R#0527
+Hi everyone, thanks for being here. If you have any questions feel free to drop them in the chat. Also, we will be having an AMA Monday if you want to hear more from the Stakehouse LSD Network developers. Bring all of your burning questions!
+
+https://discord.gg/vNAEgfGrvt?event=1040776027254816858
+
+
+[11/12/2022 12:47] koolexc
+Heyyy, just FYI
+The image is not shown here. although the URL is working if you open it in a new tab.
+
+{Attachments}
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/Screenshot_2022-11-12_at_13.46.59-744B6.png
+
+{Reactions}
+👍 
+
+[11/12/2022 12:51] illilli000
+thanks, it should be fixed soon
+
+{Reactions}
+👌🏻 (7) 
+
+[11/13/2022 01:01] chaduke3730
+what is the relationship between a BLS public key and a KNOT?
+
+
+[11/13/2022 01:25] Derek R#0527 (pinned)
+let me know if this doesn’t answer your question https://docs.joinstakehouse.com/protocol/learn/knots
+
+{Embed}
+https://docs.joinstakehouse.com/protocol/learn/knots
+KNOTs | Blockswap docs
+Creating a KNOT mints derivative ETH (dETH) and liquid validator (SLOT) tokens.
+
+
+[11/13/2022 01:31] chaduke3730
+thanks
+
+
+[11/13/2022 01:32] chaduke3730
+I think ONE BLS pub key is for one KNOT
+
+{Reactions}
+👍 (2) 
+
+[11/13/2022 04:22] vdecentralised
+That’s right @chaduke A knot is a validator that has minted derivatives and every validator has its unique BLS pub key.
+
+
+[11/13/2022 04:23] vdecentralised
+Tests give clues about the lifecycle of a validator registering within an LSD network
+
+
+[11/13/2022 04:52] chaduke3730
+thanks for your confirmation, this is a timely project after ETH merge
+
+{Reactions}
+burn (5) 
+
+[11/14/2022 16:51] trustminimised
+Oh, this is the first contest I've been in where some portion of the code has already been covered by Runtime Verification.
+If I'm reading their report correctly, they covered a few core contracts, but this contest includes several more?
+
+
+[11/14/2022 17:28] vdecentralised
+Runtime verification has done the underlying Stakehouse protocol. This contest is for the LSD on top of Stakehouse protocol. Hope this helps
+
+
+[11/14/2022 18:11] lukejohn_
+can we have the source code of StakehouseAPI.sol?
+
+
+[11/14/2022 18:14] vdecentralised
+https://github.com/stakehouse-dev/Stakehouse-Solidity-API
+
+{Embed}
+https://github.com/stakehouse-dev/Stakehouse-Solidity-API
+GitHub - stakehouse-dev/Stakehouse-Solidity-API
+Contribute to stakehouse-dev/Stakehouse-Solidity-API development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/Stakehouse-Solidity-API-AEFCB
+
+{Reactions}
+👍 
+
+[11/14/2022 19:02] trustminimised
+@vdecentralised Does the ability for LPers to burn their tokens for the underlying ETH rely on Shanghai being live? I assume it does but the choice between ETH and dETH is muddying the description for me.
+
+
+[11/14/2022 19:32] vdecentralised
+Good question. Un staking validators at the stakehouse level will require Shanghai in order to retrieve staked ETH. However, in the context of LSD, any unstaked ETH that never gets sent to the deposit contract can always be retrieved by a user that burns their LP. So basically if your ETH capital is never deployed, you can easily get it back
+
+
+[11/14/2022 19:36] trustminimised
+Thanks!
+
+
+[11/14/2022 20:14] trustminimised
+@vdecentralised Can you shed any light on this check in `GiantMevAndFeesPool` / `GiantSavETHVaultPool` `batchRotateLPTokens()`?
+`require(lpTokenETH.balanceOf(msg.sender) >= 0.5 ether, "No common interest");`
+
+
+[11/14/2022 21:28] vdecentralised
+That operation is an inventory management operation. We didn’t want it triggered by small depositors or depositors with a small amount of common interest.
+
+
+[11/14/2022 22:00] 0xdeadbeef0x
+Who can i DM?
+
+{Reactions}
+👀 
+
+[11/14/2022 22:15] daoboymatt
+@vdecentralised
+
+{Reactions}
+👍 (2) 
+
+[11/15/2022 03:33] hake_stake
+@vdecentralised sent friend request
+
+{Reactions}
+👀 
+
+[11/15/2022 10:11] veec4
+Pinned a message.
+
+
+[11/15/2022 12:50] trust90
+Where are the sources for original Stakehouse protocol?
+
+
+[11/15/2022 13:27] vdecentralised
+Hey that's currently outside the scope of LSD but if you want to understand stakehouse a bit more, we have lots of reading material: https://joinstakehouse.com/security
+
+{Embed}
+https://joinstakehouse.com/security
+Joinstakehouse
+Stakehouse allows users to stake ETH in 60 seconds. Trustless and non-custodial staking with derivatives. Never surrender your ETH. Join the Resistance.
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/Stakehouse_Homepage-94BF3.jpg
+
+
+[11/15/2022 13:27] vdecentralised
+Also the CIP paper: https://eprint.iacr.org/2022/1309
+
+
+[11/15/2022 13:40] vdecentralised
+https://github.com/stakehouse-dev/contract-deployments#mainnet-deployment
+
+{Embed}
+https://github.com/stakehouse-dev/contract-deployments
+GitHub - stakehouse-dev/contract-deployments
+Contribute to stakehouse-dev/contract-deployments development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/contract-deployments-0E4B6
+
+
+[11/15/2022 13:41] vdecentralised
+savETH registry and SLOT registry have been verified
+
+
+[11/15/2022 13:41] vdecentralised
+but like we say, Stakehouse protocol is out of scope for this competition but we do appreciate as LSD is a layer on top of the Stakehouse platform, you'll need to wrap your head around some concepts
+
+
+[11/15/2022 13:42] vdecentralised
+don't forget, the pinned messages that link to our docs
+
+
+[11/15/2022 16:42] lukejohn_
+How can people withdraw eth from a smart wallet, via which function?
+
+
+[11/15/2022 18:00] vdecentralised
+`LiquidStakingManager::withdrawETHForKnot()`
+
+
+[11/15/2022 18:27] lukejohn_
+thanks.
+
+
+[11/15/2022 18:27] lukejohn_
+I wonder why ``_autoStakeWithSyndicate`` always stake 12 eth each time
+
+
+[11/15/2022 18:28] vdecentralised
+it's a scaled SLOT balance
+
+
+[11/15/2022 18:28] lukejohn_
+ok.
+
+
+[11/15/2022 18:29] vdecentralised
+so every Stakehouse KNOT mints 8 SLOT - 4 SLOT for node runner and 4 for fees and MEV - sETH is a scaled balance of the SLOT 🙂
+
+
+[11/15/2022 18:30] vdecentralised
+that's how revenue at Syndicate level works - 50% to fees and mev and 50% to node runners
+
+
+[11/15/2022 18:49] lukejohn_
+thanks for the clarification
+
+
+[11/15/2022 18:53] lukejohn_
+who can withdraw sETH and how?
+
+
+[11/15/2022 19:24] vdecentralised
+in LSD - sETH is just an accounting token to distribute fees and mev
+
+
+[11/15/2022 19:25] vdecentralised
+only time it can be removed is when LSD winds down all validators and rage quits each validator
+
+
+[11/15/2022 19:30] lukejohn_
+Got it, thanks again
+
+
+[11/15/2022 19:34] lukejohn_
+when and where sETH gets minted then?
+
+
+[11/15/2022 19:36] vdecentralised
+sETH comes from Stakehouse protocol and is minted to the smart wallet but then auto staked as you have seen
+
+
+[11/15/2022 19:38] lukejohn_
+thanks Yes, I saw sETH was received only after _createLSDN
+
+
+[11/15/2022 19:41] lukejohn_
+I guess the smartwallet will receive sETH by calling createTakehouse() via the router.
+
+
+[11/15/2022 19:47] vdecentralised
+that's correct when either `createStakehouse` or `joinStakehouse` is called
+
+
+[11/15/2022 19:49] lukejohn_
+thanks for the confirmation.
+
+
+[11/15/2022 23:39] perseverancesuccess2021
+Hello @vdecentralised   I have a question related to "## Recommended Mitigation Steps"  . It is in the template for the bug. Sometimes it is difficult to think about and take time. Is it needed to fill this information? Is it required or have some bonus for doing so? I ask because it takes time sometimes and also not sure if my recommendation of mitigation is really good.
+
+
+[11/16/2022 00:07] liveactionllamac4
+Hi! I would recommend reading through our docs, especially here: https://docs.code4rena.com/roles/wardens/submission-policy
+
+Then if you have further questions, please ask in #❓questions or #🐺wardens, as this is more of a general topic about submissions, not something specifically related to this contest. Thanks! 🙂
+
+
+[11/16/2022 00:17] perseverancesuccess2021
+Ok. thank you very much. By the way, I asked the question and read the docs but not so clear. I will tag you with my question in the question channel.
+
+
+[11/16/2022 02:28] road220
+@vdecentralised , sent friend request
+
+{Reactions}
+👀 (2) 
+
+[11/16/2022 03:50] koxuan#5926
+@vdecentralised Hi, i have sent a friend request.
+
+{Reactions}
+👀 (2) 
+
+[11/16/2022 14:43] mtripi
+@vdecentralised Hi. I sent you a friend request
+
+{Reactions}
+👀 (2) 
+
+[11/16/2022 17:46] ladboy233
+@vdecentralised Can I please DM you?
+
+
+[11/16/2022 17:46] vdecentralised
+go for it @0xladboy | Sparkware
+
+
+[11/16/2022 18:09] un_for_given
+@vdecentralised  Hi, I have sent a friend request.
+
+{Reactions}
+👀 (2) 🚀 
+
+[11/16/2022 21:39] jtjabba
+@vdecentralised may I DM you?
+
+
+[11/16/2022 21:40] vdecentralised
+yes - no probs
+
+
+[11/16/2022 23:38] immeas
+@vdecentralised can i dm you?
+
+{Reactions}
+👍🏻 
+
+[11/17/2022 08:32] vdecentralised
+go for it
+
+
+[11/17/2022 18:18] 0xbtk
+Who can I DM?
+
+
+[11/17/2022 22:23] acegawd
+sent you a request as I'm unable to DM @vdecentralised
+
+
+[11/17/2022 22:24] vdecentralised
+Shoot me a request - I will approve
+
+
+[11/17/2022 22:35] acegawd
+Dmed
+
+
+[11/17/2022 22:41] 0xbtk
+Dmed
+
+{Reactions}
+👀 
+
+[11/18/2022 07:21] vdecentralised
+Thanks to all of the wardens for their questions so far! Not long until the end - good luck 💥 Any further burning questions don’t hesitate to shoot
+
+
+[11/18/2022 08:50] 0xnogo
+Hey @vdecentralised in the Synidicate contract, what's the difference between free floating and collateralized holders? having issues understanding the math behind `updateAccruedETHPerShares`
+
+
+[11/18/2022 09:39] vdecentralised
+fair question!
+
+
+[11/18/2022 09:39] vdecentralised
+https://docs.joinstakehouse.com/protocol/learn/SLOTTokens
+
+{Embed}
+https://docs.joinstakehouse.com/protocol/learn/SLOTTokens
+SLOT Tokens | Blockswap docs
+SLOT Tokens are derivatives of your validator and represent the ownership and management rights.They are a key component to ETH network revenue generation.
+
+
+[11/18/2022 09:40] vdecentralised
+see here for the nuances of SLOT minted by Stakehouse
+
+
+[11/18/2022 10:02] daoboymatt
+@nogo u can refer slotsettlementregistry & sETH section on the below audit that details the exchange rate slot<>seth https://github.com/runtimeverification/publications/blob/main/reports/smart-contracts/Blockswap_Stakehouse.pdf
+
+{Embed}
+https://github.com/runtimeverification/publications/blob/main/reports/smart-contracts/Blockswap_Stakehouse.pdf
+publications/Blockswap_Stakehouse.pdf at main · runtimeverification...
+Publications of Runtime Verification, Inc. Contribute to runtimeverification/publications development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/publications-20401
+
+{Reactions}
+👍 (3) 
+
+[11/18/2022 14:06] acegawd
+@vdecentralised or @Matt S who is available?
+
+
+[11/18/2022 14:06] vdecentralised
+either
+
+
+[11/18/2022 14:06] vdecentralised
+feel free to ping a message
+
+
+[11/18/2022 15:12] 0xpathfindr
+I have a question about setting optional commission in LSDNFACTORY
+
+
+[11/18/2022 15:13] 0xpathfindr
+Since this takes uint256, is the commission calculated as a percentage ? e.g if I place 10 as the optional commission it would be 10/100 ? i.e 10%???
+
+
+[11/18/2022 15:49] vdecentralised
+The `MODULO` is to 5 decimal places i.e. `100_00000`%
+
+{Reactions}
+🤙 
+
+[11/18/2022 16:15] acegawd
+@vdecentralised I did.
+
+
+[11/18/2022 16:54] joestakey#0256
+@vdecentralised Hi, I have sent a friend request
+
+
+[11/18/2022 17:36] vdecentralised
+Accepted
+
+
+[11/18/2022 17:37] vdecentralised
+Apologies - your DM user name is different so I missed it. Responded
+
+
+[11/18/2022 17:37] acegawd
+no problem.
+
+
+[11/18/2022 20:02] C4
+**🚨 CONTEST ALERT**
+
+@🐺wardens The **LSD Network - Stakehouse** contest is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Keep an eye on #📢announcements for regular updates on how the contest is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a gardener if you have questions along the way!
+
+{Reactions}
+👏 (6) 
+
+[11/18/2022 20:11] trust90
+Thanks for the cool code guys!
+
+{Reactions}
+burn (6) 🔥 (3) 
+
+[11/18/2022 20:12] Franfran#5067
+Very interesting project, wish you the best for the future !
+
+{Reactions}
+burn (7) 
+
+[11/18/2022 20:34] _zgo
+Quite a lot to review but very interesting looking forward to see how things will play out for a greater ETH decentralization 👍
+
+{Reactions}
+Blockswap_100_12x (2) this (2) Blockswap_rocket1 (2) 
+
+[11/18/2022 20:45] Derek R#0527
+Hello everyone, thank you for your participation in this audit competition! We appreciate everyone’s contributions and positive feedback for the Stakehouse LSD Networks code. 
+
+Looking forward to seeing some of your handles around in the future:BlockswapDiamond:
+
+
+[11/18/2022 20:49] lukejohn_
+Great project
+
+
+[11/18/2022 20:49] lukejohn_
+Good luck to all
+
+
+[11/18/2022 21:48] 0xdeadbeef0x
+Great project! Thanks @vdecentralised for your accurate and quick answers
+
+{Reactions}
+👍 (7) 
+
+[12/08/2022 20:59] ladboy233
+👀
+
+
+[12/12/2022 20:16] un_for_given
+any news?
+
+
+[12/12/2022 20:16] ladboy233
+👀👀👀👀👀
+
+
+[12/13/2022 13:01] _zgo
+https://tenor.com/view/sad-walk-gif-24718162
+
+{Embed}
+https://tenor.com/view/sad-walk-gif-24718162
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/sad-walk-B9EE3.png
+
+{Reactions}
+😂 (2) 
+
+[12/14/2022 11:52] 0x4non
+Wen contests results 😂
+
+
+[12/16/2022 21:15] ladboy233
+Wen contests results
+
+
+[12/17/2022 05:31] lukejohn_
+When steak?
+
+
+[12/17/2022 05:31] lukejohn_
+Strak
+
+
+[12/17/2022 05:31] lukejohn_
+https://tenor.com/view/rare-rare-steak-steak-cutting-steak-gif-11709098
+
+{Embed}
+https://tenor.com/view/rare-rare-steak-steak-cutting-steak-gif-11709098
+rare steak
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/rare-rare-steak-7FB4B.png
+
+{Reactions}
+🤤 
+
+[12/17/2022 16:48] 0x4non
+I think judgement is ready, would be nice to have some updates and eta
+
+
+[12/19/2022 15:02] ladboy233
+👀
+
+
+[12/19/2022 22:03] un_for_given
+https://tenor.com/view/facepalm-really-stressed-mad-angry-gif-16109475
+
+{Embed}
+https://tenor.com/view/facepalm-really-stressed-mad-angry-gif-16109475
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/facepalm-really-2C419.png
+
+
+[12/19/2022 22:18] ladboy233
+https://tenor.com/view/wen-elephant-wen-when-when-elephant-gif-23949143
+
+{Embed}
+https://tenor.com/view/wen-elephant-wen-when-when-elephant-gif-23949143
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/wen-elephant-wen-E777E.png
+
+
+[12/21/2022 15:53] 0x4non
+Any updates from judges or c4 staff??
+
+
+[12/22/2022 06:48] chaduke3730
+https://tenor.com/view/wait-kitten-cute-waiting-gif-23792171
+
+{Embed}
+https://tenor.com/view/wait-kitten-cute-waiting-gif-23792171
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/wait-kitten-FCCE5.png
+
+
+[12/22/2022 18:01] ladboy233
+👀
+
+
+[12/22/2022 19:21] un_for_given
+https://github.com/code-423n4/code423n4.com/pull/6257
+
+{Embed}
+https://github.com/code-423n4/code423n4.com/pull/6257
+Update Leaderboard by liveactionllama · Pull Request #6257 · code-4...
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/6257-6C31B
+
+{Reactions}
+8374_Telegram (3) 
+
+[12/22/2022 19:24] ladboy233
+🥲
+
+
+[12/22/2022 19:25] ladboy233
+@unforgiven first place looks like it.
+
+{Reactions}
+✅ 
+
+[12/22/2022 19:47] cloudellie
+:C4Keycap: 💸 🎉 **Awards for LSD Network - Stakehouse**
+
+$10,860.29 USDC » @unforgiven 
+$7,681.39 USDC » @clems4ever 
+$5,122.24 USDC » @cccz 
+$4,226.99 USDC » @Trust 
+$3,684.69 USDC » @HE1M 
+$3,540.16 USDC » @datapunk 
+$3,013.54 USDC » @Aphak5010 
+$2,931.94 USDC » @ronnyx2017 | Offside Labs 
+$2,826.71 USDC » @rbserver 
+$2,393.72 USDC » @Roman 
+$2,323.48 USDC » @koxuan 
+$2,322.49 USDC » @0xSmartContract 
+$2,092.79 USDC » @9svR6w 
+$1,550.98 USDC » @0xdeadbeef0x 
+$1,550.20 USDC » @IllIllI 
+$1,382.53 USDC » @joestakey 
+$1,367.02 USDC » @hihen 
+$1,279.94 USDC » @anon 
+$1,111.42 USDC » @0xladboy | Sparkware 
+$935.90 USDC » @Franfran 
+$878.68 USDC » @c3phas 
+$847.50 USDC » @Rotcivegaf 
+$651.09 USDC » @yixxas 
+$570.40 USDC » @pashov 
+$546.83 USDC » @ReyAdmirado 
+$543.70 USDC » @lukris02 
+$543.70 USDC » @Deivitto 
+$525.25 USDC » @0xbepresent 
+$500.09 USDC » @Jeiwan 
+$475.56 USDC » @Rolezn 
+$475.56 USDC » @delfin454000 
+$475.56 USDC » @0xNazgul 
+$446.96 USDC » @gz627 
+$438.96 USDC » @JTJabba 
+$351.13 USDC » @immeas 
+$303.79 USDC » @bearonbike 
+$302.45 USDC » CloudX ( @Migue, @pabliyo, @marce1993) 
+$232.65 USDC » @bitbopper 
+$215.01 USDC » @code-cipher 
+$189.50 USDC » @chaduke 
+$146.87 USDC » SmartSek ( @hake | SmartSek, @0xDjango)
+$140.62 USDC » @zaskoh 
+$129.76 USDC » @btk 
+$126.43 USDC » @Awesome 
+$120.17 USDC » @chrisdior4 
+$120.17 USDC » @tnevler 
+$120.17 USDC » @brgltd 
+$118.49 USDC » @arcoun 
+$96.33 USDC » @Sahar 
+$79.33 USDC » @imare 
+$68.14 USDC » @skyle 
+$68.14 USDC » @Saintcode_ 
+$68.14 USDC » @bharg4v 
+$68.14 USDC » @Ignacio 
+$66.50 USDC » @bin2chen 
+$66.44 USDC » @0xSurena
+$64.31 USDC » @c7e7eff/RustyRabbit 
+$63.23 USDC » @fs0c 
+$58.29 USDC » @RaymondFam 
+$58.29 USDC » @trustminimised 
+$58.29 USDC » @shark 
+$58.29 USDC » @ogZ 
+$58.29 USDC » @Josiah 
+$52.03 USDC » @pavankv 
+$52.03 USDC » @hl_ 
+$52.03 USDC » @peanuts 
+$52.03 USDC » @thinklab 
+$52.03 USDC » Secureverse (@imkapadia, @Nsecv, @0xwhiteDevil) 
+$52.03 USDC » @Sathish9098 
+$52.03 USDC » @martin11 
+$52.03 USDC » @Bnke 
+$52.03 USDC » @0xRoxas 
+$52.03 USDC » @gogo 
+$52.03 USDC » @ch0bu 
+$52.03 USDC » @masa 
+$52.03 USDC » @sakman 
+$52.03 USDC » @B2 
+$52.03 USDC » @nogo 
+$52.03 USDC » @pedr02b2 
+$52.03 USDC » @Udsen 
+$52.03 USDC » @cryptostellar5 
+$52.03 USDC » @bulej93 
+$52.03 USDC » @Diana 
+$52.03 USDC » @a12jmx 
+$50.87 USDC » @minhtrng 
+$44.41 USDC » @wait 
+$40.86 USDC » @corerouter 
+$11.19 USDC » @perseverancesuccess 
+$11.19 USDC » @banky 
+$5.60 USDC » @satoshipotato
+$4.41 USDC » V_B ( @Barichek, @vlad_bochok)
+$3.13 USDC » @0xPanda
+
+{Reactions}
+❤️ (17) 🔥 
+
+[12/22/2022 19:47] cloudellie
+🏁 Findings summary
+---------------------------
+High risk findings: 85 total, 21 unique
+Med risk findings: 103 total, 31 unique
+Gas findings: 18 total
+QA findings: 60 total
+
+Awards will be distributed on Polygon within the next 1-2 weeks. **Congratulations, everyone!** 💸 💸 💸
+
+*If you participated in this contest and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+{Reactions}
+burn (3) 
+
+[12/22/2022 22:45] chaduke3730
+congratas to all!
+
+{Reactions}
+🚀 (8) 
+
+[12/22/2022 23:58] Saintcode_#8823
+yesssir
+
+
+[12/23/2022 00:26] pavankv
+This is my first reward , finally I can show my face to my parents. Thanks c4 for this platform
+
+{Reactions}
+🎉 (10) hi5 (6) BlockswapDiamond (2) 
+
+[12/23/2022 00:47] cloudellie
+Congratulations!
+
+{Reactions}
+🔥 
+
+[12/23/2022 01:01] jeiwan
+@🧦 sockdrawer | C4 @CloudEllie - away The contest should be re-judged by a different judge. These are invalid findings (there might be more):
+
+https://github.com/code-423n4/2022-11-stakehouse-findings/issues/366
+bringUnusedETHBackIntoGiantPool simply calls burnLPTokensForETH on addresses provided by user. It doesn't transfer funds to the addresses or anything like that.  "the attacker can transfer LPTokens that belongs to GiantMevAndFeesPool to any addresses it controls." – this is not true!
+
+https://github.com/code-423n4/2022-11-stakehouse-findings/issues/328
+Reentrancies are very hard to exploit, even if code allows them. The finding doesn't absolutely explain how they can be exploited "to steal founds or take advantage of other users/protocol". The finding looks more like a QA, even though there's no justification for nonReentrant.
+
+https://github.com/code-423n4/2022-11-stakehouse-findings/issues/260
+withdrawETH withdraws idle ETH, which doesn't receive rewards. There's no need to distribute rewards to depositors of idle ETH since the funds haven't been used in staking yet.
+
+https://github.com/code-423n4/2022-11-stakehouse-findings/issues/240#issuecomment-1340121298
+
+https://github.com/code-423n4/2022-11-stakehouse-findings/issues/226#issuecomment-1340142291
+
+{Reactions}
+👍 (5) 
+
+[12/23/2022 03:05] sockdrawermoney
+@Jeiwan This isn’t how C4 works. Judges make the final call based on review and input and we move forward and focus on improving process and consistency for the future. There is a discussion about adding an appeal process and I’d suggest you focus on adding your thoughts to that and other conversations rather than relitigating an audit that is already wrapped. https://github.com/code-423n4/org/issues/73
+
+{Embed}
+https://github.com/code-423n4/org/issues/73
+Proposal - Appeal committee · Issue #73 · code-423n4/org
+I believe that in order to further democratize the C4 experience it is necessary to add an additional stage to each contest - an appeal committee. Wardens that are convinced their submission has be...
+Code4rena - ARCHIVE-Q4-2022 - stakehouse-nov11 [1040268281040359556].txt_Files/73-4EB9F
+
+
+[12/23/2022 03:15] jeiwan
+Sad to hear that you're aware of the situation and your decision is just to move on. Bad judging significantly harms C4 on many levels.
+
+
+[12/23/2022 03:29] sockdrawermoney
+I’m not aware of a “situation” as much as “because humans” but the finality of judging is a very long-settled matter https://discord.com/channels/810916927919620096/810936719003090974/908760695712149515
+
+
+[12/23/2022 03:55] soosh4618
+Have rewards already been shipped or only announced?
+
+There are at least 2 High Solo findings that should've been invalid (240,226) even after post judging QA. (for backstage: https://github.com/code-423n4/2022-11-stakehouse-findings/discussions/451)
+
+This is bad for everyone involved:
+- Wardens: unfair results and payout
+- Judges: will lose respect and credibility from wardens
+- Sponsors: receive invalid findings
+- C4: loss of credibility for quality reports
+
+
+[12/23/2022 04:16] soosh4618
+(I didn't participate in the contest so I have no personal incentives. I just noticed a lot of inconsistencies for the judging for this contest as brought up by other wardens and think we can come up with a better resolution.)
+
+
+[12/23/2022 04:23] jeiwan
+I believe I won't be wrong if I say that no one in this community has doubts in Alex's conscientiousness. But I cannot say that about the judge of this contest. And seeing that clearly invalid findings were approved as high ones and how post-judging QA issues were ignored, I cannot say I have any trust for the judge as a security researcher or someone who's eligible for judging security audit contests. It's hard to believe that an experienced security researcher could make such mistakes.
+
+
+[12/23/2022 05:03] sockdrawermoney
+As I mentioned in our DM conversation, there is nothing C4 staff can or will do to change or overrule a judge’s decision. It is outside the scope of our responsibility and propriety of the integrity of the process. 
+
+I highly encourage people to redirect energy toward suggesting process-focused solutions to the concerns you have, as there is not a mechanism for me or Ellie or anyone else to overrule a judge. 
+
+While we are on the topic of conscientiousness, I will also direct people to refamiliarize yourselves with the community values we have outlined here: 
+https://docs.code4rena.com/philosophy/how-we-work
+and here: https://docs.code4rena.com/philosophy/security-is-about-people
+
+{Embed}
+https://docs.code4rena.com/philosophy/how-we-work
+The culture we’re building
+
+{Embed}
+https://docs.code4rena.com/philosophy/security-is-about-people
+Security is about people
+
+
+==============================================================
+Exported 131 message(s)
+==============================================================
